@@ -1,0 +1,86 @@
+Part I
+======
+
+
+
+
+Write a program to simulate an ecosystem containing two types of creatures,
+bears and fish. The ecosystem consists of a river, which is modeled as
+a relatively large array. Each cell of the array should contain an Animal
+object, which can be a Bear object, a Fish object, or null. In each step,
+bears and fish attempt to move into adjacent array cells or they can stay
+where they are, at random. Use actual object creation, via the new operator,
+to model the creation of new objects, and provide a visualization of the array
+after each time step.
+
+
+
+
+
+
+1.  Create classes Animal, Bear, Fish, and Ecosystem.
+    Make the Animal class abstract.
+
+    Use the following is a relationships:
+    Bear is an Animal
+    Fish is an Animal
+    
+    Use the following has a relationship:
+    Animal has an Ecosystem such that each Animal keeps track
+    of its river and position in the river.
+
+  
+2. Attributes of the Ecosystem:
+ 
+    Animal[] _river
+    int _populationSize // represents the number of animals in the river
+
+3. Capablities of the Ecosystem are listed below:
+
+    // constructor
+    Ecosystem(int capacity, int numFish, int numBear)   
+
+     
+    // accessor methods
+    public Animal[] getRiver()  // returns the river
+    public boolean isFull() // returns true if the river cannot accomodate a new Animal
+    public int getRandomPos() // returns -1 if the river is full otherwise returns a random open position
+
+
+
+    // mutator methods
+    public void step() // asks each animal in the river to move
+    //  example :    |__F___B__|   where F represents a Fish, B a Bear
+    // step() might look like : |__F__B___|
+    // step() might look like : |_F__B____|
+
+
+
+    // overriden methods
+    public String toString() // prints the ecosystem 
+
+
+4. Attributes of an Animal:
+    
+    Ecosystem _eco
+    int _pos // represents the position of the Animal in the river
+
+5. Capabilities of an Animal
+   
+    Animal(Ecosystem eco, int pos) // constructor
+ 
+
+6. Capablities of a Bear
+     
+    Bear (Ecosystem eco, int pos)
+    // override the toString method
+    public String toString()
+
+7. Capablities of a Fish
+   
+   Fish (Ecosystem eco, int pos)
+ 
+   public String toString()
+
+
+
