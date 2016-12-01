@@ -12,10 +12,14 @@ public class Ecosystem{
     public Ecosystem(int capacity, int numFish, int numBear){
 	_river = new Animal[capacity];
 	_populationSize = numFish + numBear;
-	while (numFish-- > 0)
+	while (numFish-- > 0){
 	    new Fish(this, getRandomPos());
-	while (numBear-- > 0)
+		_populationSize += 1;
+	}
+	while (numBear-- > 0){
 	    new Bear(this, getRandomPos());
+		_populationSize += 1;
+	}
     }
     
     // accessor methods
@@ -71,12 +75,34 @@ public class Ecosystem{
     // precondition: All animals can move.
     // postcondition: Each animal in the river makes exactly one attempt
     //                to move.
+	
     public void step(){
+	Animal [] Animals = new Animal [_populationSize];
+	int t = 0;
+	for (int i = 0; i < _river.length; i++){
+		Animal element = _river[i];
+		if (element != null){
+			Animals[t] = element;
+			t++;
+		}
+	}
+	for (Animal x : Animals){
+            if (x != null)
+                x.move();
+        }     
+			
+                    
+    }
+	/*
+	 //Buggy code, goes over what it already moved
+	public void step(){
+	Animal [] Animals = new Animal [_populationSize];
+	int i = 0;
         for (Animal x : _river){
             if (x != null)
                 x.move();
         }            
-    }
+    }*/
 
     
     // postcondtion: return the state of the river
