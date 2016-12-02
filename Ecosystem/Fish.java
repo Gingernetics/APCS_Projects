@@ -1,6 +1,5 @@
 public class Fish extends Animal{
 
-
     // constructor
     public Fish (Ecosystem eco, int pos){
 	super(eco,pos);

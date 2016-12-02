@@ -69,7 +69,6 @@ public class Ecosystem{
 	}
 	return ans;
     }
-
     
     // stub - to be completed later
     // precondition: All animals can move.

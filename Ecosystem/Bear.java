@@ -1,6 +1,5 @@
 public class Bear extends Animal{
 
-
     // constructor
     public Bear (Ecosystem eco, int pos){
 	super(eco,pos);
