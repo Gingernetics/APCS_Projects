@@ -1,3 +1,3 @@
 interface Trainable{
-    	   void train(double hours);
+    	   public void train(double hours);
     }

@@ -4,7 +4,6 @@ public class SkiJumper extends Athlete implements Flier{
 	
 	public SkiJumper (String first, String last){
 		super(first, last);
-		_numofjumps = 0;
 	}
 
 	public void fly(){
@@ -19,9 +18,6 @@ public class SkiJumper extends Athlete implements Flier{
 		_hours += time;
 	}
 
-	public String toString(){
-		return super.toString() + " | Number of jumps: " + _numofjumps;
-	}
 	
 
 

@@ -1,0 +1,9 @@
+public class SkiClient{
+
+	public static void main(String [] args){
+	Athlete a = new Athlete("Bob", "Ross");
+
+	System.out.println(a);
+	
+	}
+}
