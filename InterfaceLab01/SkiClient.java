@@ -17,11 +17,11 @@ public class SkiClient{
 			       new SkiJumper("Pat", "Lee")
 	};
 
-	/*
+	
 	// print jumpers
 	for (SkiJumper s : jumpers)
 	    System.out.println(s);
-	*/
+	
 
 	// train
 	for (SkiJumper s : jumpers){
