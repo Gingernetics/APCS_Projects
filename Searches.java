@@ -36,11 +36,15 @@ public class Searches{
 			ans = i;
 		}
 		if (key.compareTo(data[i]) > 0){
-			newdata = 
+			String [] newdata = new String[length];
+			for (int i = 0; i < length; i++)
+			    newdata[i] = data[i];
 			binarySearch(String [] newdata, String key)
 		}
 		if (key.compareTo(data[i]) < 0){
-			newdata = 
+		    String [] newdata = new String[length];
+			for (int i = 0; i < length; i++)
+			    newdata[i] = data[i];
 			binarySearch(String [] newdata, String key)
 		}
 		
