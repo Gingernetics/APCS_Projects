@@ -29,18 +29,22 @@ public class Searches{
 
 	//precondition: data != null, data is sorted in increasing (or decreasing) order "FOR THIS INCREASING"
 	//postcondition: same as linear
-	public static int binarySearch(String [] data ,String key){
+	public static int binarySearch(String [] data, String key){
 		int ans = -1;
-		int length = data.length
-		for (int i = 2; i < length; i++){
-			if (key.equals(data[length/i]){
-				ans = data[length/i];
-				break;
-			}
-			if (key.compareTo(data[i]) < 0)
-				
+		int length = data.length / 2;
+		if (key.equals(data[length])){
+			ans = i;
 		}
-		return ans
+		if (key.compareTo(data[i]) > 0){
+			newdata = 
+			binarySearch(String [] newdata, String key)
+		}
+		if (key.compareTo(data[i]) < 0){
+			newdata = 
+			binarySearch(String [] newdata, String key)
+		}
+		
+		return ans;
 				
 	}
 
