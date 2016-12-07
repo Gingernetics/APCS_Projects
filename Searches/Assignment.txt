@@ -1,0 +1,55 @@
+Due: Thurs. 12/08
+
+1. Review the code in Searches.java.
+
+2. Consider the array:
+
+     1,5,9,12,15,21,29,31
+
+
+    where the binarySearch() function from Searches.java is performed
+    on the array.
+
+   Trace the values of the variables lowerBound, upperBound and middle
+   for each of the following keys.
+
+  a. 5
+  b. 13
+  c. 16
+
+
+3. Given this unordered array:
+
+     12,21,5,9,1,31,29,15
+
+
+    If a binarySearch is performed on this array, which of the keys
+    can be found?
+
+
+
+4. If an array is sorted in descending order and the binarySearch method
+   from Searches.java is performed, which key(s), if any, can be located?
+
+
+
+
+
+
+5. Write the static method log2(int n) that returns the number of times
+   the integer n can be divided in half until it reaches 1. This function
+   should return an integer.
+
+    ex. log2(8) -> 3
+        log2(0) -> 1
+	log2(7) -> 1
+
+6. Compute log2(Integer.MAX_VALUE).
+
+7. Given an array of N objects that are sorted in ascending order,
+   determine the maximum number of times the while loop will be executed?
+
+
+8. When will this occur?
+
+   
