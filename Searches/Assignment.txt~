@@ -66,7 +66,6 @@ Due: Thurs. 12/08
 
 6. Compute log2(Integer.MAX_VALUE).
 			29
-
 7. Given an array of N objects that are sorted in ascending order,
    determine the maximum number of times the while loop will be executed?
 
