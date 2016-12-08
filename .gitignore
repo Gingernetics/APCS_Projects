@@ -1,5 +1,6 @@
 *.class
 *.java~
+*.txt~
 
 # BlueJ files
 *.ctxt
