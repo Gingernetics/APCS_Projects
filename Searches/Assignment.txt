@@ -13,18 +13,23 @@ Due: Thurs. 12/08
    Trace the values of the variables lowerBound, upperBound and middle
    for each of the following keys.
 		lowerBound | upperBound | middle
-  a. 5		0		7		3
-		0		2		1
-			return 1		
-  b. 13		0		7		3
-		4		7		5
-		4		4		4
-		4		3		
+  a. 5		0		8		4
+		0		4		2
+		0		2		1		
+			return 1	
+	
+  b. 13		0		8		4
+		5		8		6
+		5		6		5
+		4		5		4
+		4		4		
+
 			return -1
-  c. 16		0		7		3
-		4		7		5
-		4		4		4
-		5		4
+
+  c. 16		0		8		4
+		5		8		6
+		5		6		5
+		5		5
 			return -1	
 
 
@@ -36,13 +41,13 @@ Due: Thurs. 12/08
     If a binarySearch is performed on this array, which of the keys
     can be found?
 
-		5, 31
+		5, 29
 
 
 4. If an array is sorted in descending order and the binarySearch method
    from Searches.java is performed, which key(s), if any, can be located?
 
-		Center element
+		Center element, assuming an odd number of elements
 
 
 
@@ -54,22 +59,23 @@ Due: Thurs. 12/08
     ex. log2(8) -> 3
         log2(0) -> 1
 	log2(7) -> 1
-**Bug with multiples of 2
+
 	public static int log2(int n){
 		int i = 0;
-		if (n % 2 == 0) i++;
-		while (!(n/2 == 1)){
+		while (!(n/2 == 0)){
 			i++;
-			n = n/2;
+			n /= 2;
 		}
+	return i;
 	}
 
 6. Compute log2(Integer.MAX_VALUE).
-			29
+			30
 
 7. Given an array of N objects that are sorted in ascending order,
    determine the maximum number of times the while loop will be executed?
 
+			<= log2(N) + 1
 
 8. When will this occur?
 

@@ -19,7 +19,7 @@ public class Searches{
 	List<String> wordList = new ArrayList<String>();
 	// fill wordList
 	Scanner s = new Scanner(System.in);
-	while (s.hasNext() && !(s.next().equals("exit"))){
+	while (s.hasNext()){
 	    wordList.add(s.next());
 	}
 	
@@ -82,12 +82,14 @@ public class Searches{
     // You will not be test on generics.
     public static<T extends Comparable<? super T>> int binarySearch(T[] array, T key){
 	int ans = -1;
-	int lowerBound = 0, upperBound = array.length - 1;
+	// Search for key in array[lowerBound, upperBound).
+	int lowerBound = 0, upperBound = array.length ;
 	int middle;
 	int comp;
 	
-	while (lowerBound <= upperBound){
-	    middle = (lowerBound + upperBound) / 2;
+	while (lowerBound < upperBound){
+	    // beware of integer overflow
+	    middle = lowerBound + (upperBound - lowerBound) / 2;
 	    comp = key.compareTo(array[middle]);
 	    if (comp == 0){
 		ans = middle;
@@ -96,7 +98,7 @@ public class Searches{
 	    else if (comp > 0){
 		lowerBound = middle + 1;
 	    }
-	    else upperBound = middle - 1;
+	    else upperBound = middle;
 	}
 	return ans;
     }
@@ -107,21 +109,18 @@ public class Searches{
 	// Randomize the size of the arrays
 	int N = (int) (Math.random() * 10) + 1;
 
-
 	// Instantiate the arrays
 	String [] words = new String[N];
 	Integer [] numbers = new Integer[N];
 
 	// Initialize the arrays with random elements.
 	System.out.println("************* Population ****************");
-	System.out.println("Please input " + N + " elements, then type exit");
 	fillRandom(words);
 	fillRandom(numbers, 1, 10);
 
 	// Print the initial ordering to the arrays.
-	printArray(numbers);
 	printArray(words);
-
+	printArray(numbers);
 	
 	// Perform linear searches on arbitrary (unordered) arrays.
 	System.out.println("******** Testing linear search **********");
