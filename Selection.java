@@ -8,8 +8,8 @@ public class Selection{
 	}
 	
 	public static int minPos( Integer [] data, int a, int b){
-		int ans = 0;
-		for(int i = 0; i < b; i++){
+		int ans = a;
+		for(int i = a; i < b; i++){
 			if (data[i] < data[ans]){
 				ans = i;
 			}	
