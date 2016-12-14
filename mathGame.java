@@ -7,19 +7,35 @@ public class mathGame{
 		//Gets desired output
 		System.out.println("Enter the desired output: ");
 		Scanner scanner = new Scanner(System.in);
-		String total = scanner.nextLine();
+		String stringTotal = scanner.nextLine();
+		int total = Integer.parseInt(stringTotal);
+		
 
-		//Gets array of numbers
+		//Gets array of Strings from command line
 		System.out.println("Enter the four numbers, separated by spaces: ");
 		String numbers = scanner.nextLine();
-		String[] arrayOfNumbers = numbers.trim().split("\\s+");
+		String[] arrayOfStrings = numbers.trim().split("\\s+");
+
+		//Transfers parsed values to array of ints
+		int[] arrayOfNumbers = new int[arrayOfStrings.length];
+		int i = 0;
+		for(String x : arrayOfStrings){
+			arrayOfNumbers[i] = Integer.parseInt(x);
+			i++;
+		}
+
+		//call mathGame
 		mathGame(total, arrayOfNumbers);
 	}
 
-	public static void mathGame(String total, String [] numbers){
-		String ans ="Your username is " + total;
-		for(String x : numbers)
-			System.out.println(x);
+	//precondition: total >= 0; numbers != null
+	//postcondition: returns true if numbers can create total using addition or subtraction
+	public static boolean mathGame(int total, int [] numbers){
+		//test
+		//for(int x : numbers)
+		//	System.out.println(x);
+		
+		return false;
 		
 	}
 
