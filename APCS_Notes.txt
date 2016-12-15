@@ -1,0 +1,565 @@
+9/9/16 Java Basics - Arguments from the command line
+
+public class Helloargs {
+	public static void main(String[] args) 
+	{
+	System.out.println("Hello, " + args[0]);
+    	}
+}
+
+/* 	To run, compile and java HelloWorld <argument>
+	Arguments are stored in the arguments array */
+
+Scanner is the class
+
+Scanner sc = new Scanner(System.in);
+
+9/14/16 Declaring variables
+Java is a strongly typed language
+<DataType> <Variable>;
+
+System.out.println(x = "Jane"); is valid //IFF x is declared
+
+9/15/16 Strings
+1 + 5 + "45" + 12 returns "64512" :)
+
+9/16/16 Integer Data type
+- primitive : int
+- Object : Integer
+- The integer set has closure property for all operators
+    int operator int = int
+- operators: +, - , *, /, %
+-Converting Strings to an integer
+   Integer.parseInt(<String>) returns integer
+
+9/19/16 Integers
+trunc(3.4) = 3 
+trunc(8.999) = 8 // Chops off floating point -- data loss
+
+
+int y = 8 / 0 //Runtime error - division by zero
+
+Remainders (%) mod operator
+r = n % d
+r : remainder
+n : dividend
+d : divisor
+
+Java Definition: r = n - trunc(n/d)*d
+always same sign as dividend
+
+Python
+Always same sign as divisor
+
+9/20/16
+y = 3
+x = 1
+
+floor()                   
+int z = (int) 5.3; // z = 5 () trunc operation
+casting has a high precedence than operators
+
+Legal Double values
+(+) Infinity, -Infinity
+Divide by zero in doubles
+
+NaN -Not a Number
+Math.sqrt(-1.0) = NaN
+
+Scientific Notation
+double x = 2.87e3;
+
+Type Conversion
+(I.) Explicit Type Conversion
+	- String -> Double
+	- Double.parseDouble(String) -> double
+(II.) Explicit Cast
+	(double) 3 = 3.0
+(III.)Automatic Promotion
+	double operator int 
+
+
+public Static void main(String args[]){
+	cow();
+	System.out.println();
+}
+
+public Static void cow(){
+}
+
+public - modifier
+static - free method
+void - return type
+
+
+9/28/16
+Static Methods
+- Modifiers
+	public : available both inside and outside defined class
+	private : only available inside class
+	protected : only available within its class and subclass
+
+- Side effects
+	A method produces a side effect if it consumes input, produces output or changes the state of the program
+
+- Mathematical Functions
+	Does not produce side effects, recieves arguments and returns a value
+- Mathematical Overloading
+	Java supports method overloading (as long as signatures are different)
+		printName(String , String)
+		printName(String, String, String)
+
+9/29/16  Object Oriented Programming
+- Create our own data types
+
+UML - Unified Markup language
+class : Object
+Capabilities Methods and Constructors:
+// + (public) - (private) # (protected)
++ Object()
++ toString() : String
+
+new <Constructor> --> instantiates an Object, creates an instance of the Object
+
+A Constructor is a special method that has the instructions on how to initialize an object
+
+public class ObjectDemo{
+	public static void main(String args[]){
+		Object obj1 = new Object();
+		A a1 = new A();
+		A a2 = new A("Hello");
+		System.out.println(obj1.toString());
+		System.out.println(a1.toString());
+		System.out.println(a2.toString());
+	}
+}
+
+java.lang.Object@784d2125      Class@ID
+
+public class A extends Object{
+	private String _s;
+
+	//constructor
+	public A(){
+		super(); //creation
+		_s = "DEFAULT";
+	}
+	
+	//Overload THE CONSTRUCTOR
+	public A(String s){
+		super();
+		_s = s;
+	}
+
+	//overwrite the toString() method inherited from the Object class
+	public String toString(){
+		String ans = super.toString();
+		ans += "_s : " + _s;
+		return ans;
+	}
+}
+
+super() means parent to construct itself
+Object: super, parent, base class
+A: subclass child
+
+
+instance variables start with an underscore
+public class B extends A{
+	//instance variable
+	private int _n;
+
+	//constructor
+	public B(){
+		super();
+		_n = -1;
+	}
+	
+	//overwrite the toString() method inherited from A
+	public String toString(){
+		String ans = super.toString();
+		ans += "_n : " + _n;
+		return ans;
+
+
+10/11/16
+a. Boolean Values
+	primitive data type: boolean
+		ex. boolean b2 = false;
+			b2.toString() --> Comp Error
+	Wrapper Class : Boolean
+		ex. Boolean b1 = new Boolean(false);
+			b2.toString() --> "false"
+	-No ordering property
+	-values : true, false
+	Autoboxing automatically puts data into object
+b. Relational Operators: > , < , >= , <=
+nummeric arguments, boolean output
+	ex. int a = 1, b = 7, c = 10;
+	boolean valid1 = a <= b <= c;
+	(a <= b) <= c
+	TRUE <= 10
+	Compilation ERROR
+	***LEFT TO RIGHT***
+Operator Precedence
+	Object creation and casting: new(type)
+	Logical NOT !
+	Multiplication and Division: * ,  / , %
+	Addition and Subtraction: + , -
+	Relational Operators: > , >= , < , <=
+	Equality operators: == ,  !=
+	Logical AND : &&
+	Logical OR : ||
+	Assignment:  = , += , -= , *= , /= , %=
+c. Equality and Inequality ( == ,  !=)
+	Primitives (int, double, boolean)
+		-Given a and b are primitive data types
+			a == b a and b are equal
+			a =! b a and b are not equal
+		-ex.	
+			int year 2016;
+			boolean isEven = year % == 0; //true
+			boolean compare = 1 + 1 == 1; //false
+			boolean test = compare == false; //true
+
+			1.0 - 2.0 / 3.0 == 1.0 / 3.0
+	Objects 
+			
+
+
+
+cp .:.. command shows where to find
+
+10/13/16
+
+a. Equality and Inequality
+	- Primitive data types (int, double, boolean)
+		Widening Conversions: For the primitive data types, a value of a narrower datatype can be converted into a wider datatype without loss of data.
+		int == double --> doube == double ***
+	
+	- Objects
+		Checking to see if they are the same object
+		Based on reference value
+
+b. Conditional Operators
+
+String s = null;
+boolean = s != null;
+//returns false
+
+10/17/16
+Object Equality
+	Object a = new Object();
+	Object b = new Object();
+	Object a = c;
+
+	== checks reference value
+	.equals checks value of object 
+		aliases (the same) of the same object
+	(i)	a == b; FALSE 
+	(ii)	a == c; TRUE
+	(iii)	a.equals(b); FALSE
+	(iv)	a.equals(c); TRUE
+
+	Two strings are equal if they contain the same sequence of characters
+	string s1 = "howdy";
+	string s2 = ne String("howdy");
+	string s3 = "howdy";
+	
+	(i)	s1 == s1; TRUE
+	(ii)	s1 == s2; FALSE
+	(iii)	s1.equals(s1); TRUE
+	(iv)	s1.equals(s2); TRUE
+	(v)	s1 == s3; MAYBE , MOSTLY TRUE (During comp, it may or may not refer to object)
+	(v)	s1.equals(s2); TRUE
+
+	String s = null;
+	String t = "howdy";
+
+	pointer == reference
+
+	(i) t.equals(s) FALSE
+	(ii) s.equals(t) Runtime Error
+
+	F, T, T, F
+
+Conditional Operators || , &&
+
+	AND HAS HIGHER PRECEDENCE!!!!!!!!!!!!!!!!
+
+Flow Control
+
+
+10/18/16
+
+if ( boolean) {
+	statement1;
+	statement2;
+}
+
+if  (boolean){}
+else {}
+
+10/20/16
+
+while (boolean expression)
+	statement;
+for (<initialization> ; <boolean> ; <update>){
+	statement 1;
+	statement 2;
+}
+
+10/26/16
+Strings are immutable
+.length() returns num. of characters
+"abc".substring(1, 2) -> "b"
+"abc".substring(1) -> "bc"
+
+10/27/16
+	indexOf(String) -> int   (first occurance from left)
+	"apple".indexOf("a") -> 0
+	"apple".indexOf("p") -> 1
+	"apple".indexOf("ple") -> 2
+	"apple".indexOf("z") -> -1
+break; -> breaks the loop (for or while)
+
+static - class -level
+CONVENTION- all final variables are Uppercase
+
+10/28/16
+	String VOWELS = "aeiou";
+	public static Boolean isVowel(String w){
+		
+		return VOWELS.indexOf(w) != -1;
+}
+
+	public static String collectVowels(String w){
+		String values = "";
+		for (int i = 0; i < w.length(); i ++)
+			for ( int j = 0; j < VOWELS.length(); j++)
+				if (w.substring(i,i + 1).equals((VOWELS.substring(j, j + 1))
+					values += w.substring(i , i + 1);
+		return values
+
+}
+	
+lexiographic order in java:
+String method:
+	.compareTo(String) -> int
+	String A, B;
+	A.compareTo(B) -/ Negative when A < B
+		        | 0 when equal strings
+			\ Positive when A > B
+
+	"a".compareTo("b") < 0 -> true
+	"b".compareTo("a") < 0 -> false
+
+11/2/16
+Building a coin class
+
+11/7/16
+
+A super class reference can denote objects of its subclasses
+
+	Coin c1 = new Coin(); // ok
+	Coin c2 = ne BiasedCoin(0.2); // ok b/c A BiasedCoin is a Coin
+	BiasedCoin c3 = new Coin(); //Comp. Error: Not all coins are biased coins
+
+Polymorphism:
+	Which object a reference will actually denote during runtime cannot be determined at compile time. Polymorphism allows a reference to denote different objects in the inheritance hierarchy at different times during execution.
+	ex.
+		Coin c;
+		if (Math.random() > 5)
+			c = new Coin();
+		else
+			c = new BiasedCoin(0.2);
+
+Dynamic Method Lookup:
+	When a method is invoked using a reference the method definition which actually gets executed is determined by the class of the object denoted by the reference ar runtime.
+	ex.
+		Coin c;
+		if (Math.random() > 5)
+			c = new Coin();
+		else
+			c = new BiasedCoin(0.2);
+
+P(H) = 35%
+
+Will this code compile?
+	Object c = new Coin(); // ok A Coin is an Object
+	//c.flip();	// Compilation Error. The Object Class does not have a flip method
+	((Coin) c).flip(); //ok Type Cast
+
+THIS WILL COMPILE, BUT NOT RUN
+	Object c = new String("hi"); 
+	((Coin) c).flip(); 
+
+	RUNTIME ERROR
+
+***For compilation, look at left-hand side of equation only (unless syntax error) Compiler compares types*****
+
+PseudoInheritance:
+	Any instance variable that is declared private in the superclass cannot be directly accessed by a subclass, although it is inherited by the subclass
+
+	ex. public class A{
+		private int _x;
+
+		public A(int x){
+			_x = x;
+		}
+		
+		public int f(){return _x + 2}
+		public int f(){return _x + 2}
+	}
+
+	public class B extends A{
+		private int _y;
+
+		public B (int y){
+			super(1);
+			_y = y;
+		}
+		public int g() {return 3 * _y}
+	}
+
+	public class C extends B{
+		private int _z;
+
+		public C (int z){
+			super(2);
+			_z = z;
+		}
+		public int h() {return f() + g() + _z}
+	}
+
+c.f() // 3
+c.g() // 6
+c.h() // 19
+
+A c = new C(10);
+c.f() // 3
+c.g() // 6
+c.h() // COMPILER ERROR (No h() in A)
+
+11/9/16
+Arrays:
+	An array is a data structure which defines an ordered collection of a fixed number of homogenous data elements. 
+	Arrays, Mulridimensional arrays, lists
+	**All elements in the array have the same data type**
+	- Size of the array is fixed
+	- Arrays are objects
+	- Arrays can be of primitive datatypes or reference types
+	- Each array object has an instance variable, length, which specifies the number of elements the array can accomadate
+	- Simple arrays are one-dimensional
+	- Since arrays can store object references, the objects referenced can also be an array of arrays (Multi-dimensional)
+
+Declaring Array variables
+	Form 1: <datatype> [] <arrayname>;
+	Form 2: <datatype> <arrayname> [];
+
+	int [] numbers;
+	Person [] people, group;
+	String names [], first;
+
+numbers, people, group, names are array REFRENCES!
+first is a string reference
+
+Constructing an array:
+	 Form <arrayname> = new <datatype>[<length>];
+		where length is a non-negative integer
+
+	numbers = new int [10];
+	people = new Person [5];
+
+numbers is a reference to an array of 10 integers. Each default integer value is 0. 
+null is default for custom for reference
+
+int [] numbers = new int [-2];
+Runtime Error
+
+Person [] group = new Person [2.0];
+Compiler Error
+
+Initializing an array:
+	<datatype> [] <arrayname> = {<arrayInitializeCode>};
+	ex
+		int [] numbers = {1,2,3,4,5};
+		Person [] people = {newPerson("Billy","Bob"),null,null};  
+
+11/10/16
+Using an array:
+	- [n] operator is used to access the (n - 1)th value in the array.
+	- n must be an integer where 0 <= n < length
+
+	ex
+		int[] odds = new int[5];
+		for(int i = 0; i < odds.length(); i++)
+			odds[i] = 2 * i + 1
+		// results in [1,3,5,7,9]
+
+	System.out.println(odds); //[i@345bd3]
+	
+	for (int i = 0; i < odds.length(); i++)
+		System.out.println(odds[i]);
+
+"For Each loop"
+	for (int x : odds)
+		System.out.println(x);
+
+11/15/16
+Binary Numbers
+Hexadecimal Numbers
+Octal Numbers
+
+1: Compute r = n % b
+2: Compute q = n / b
+3: if q = 0, answer is "123231"
+	else i++
+		n = q
+	go to step 1
+
+
+public static void badShuffle(Object [] array){
+	int n = array.length;
+	for (int i = 0; i < n; i++){
+		int r = (int) (Math.random() * n);
+		Object rElement = array[r];
+		array[r] = array[i];
+		array[i] = rElement;
+	}
+}
+
+n^n possibilities for bad shuffle
+n! possibilities for good shuffle
+
+n^n % n! != 0 in general
+
+Interfaces usually end in -er or -able
+
+12/7/16
+
+Integer implements Comperable<Integer>
+Double implements Comperable<Double>
+String implements Comperable<String>
+Boolean implements Comperable<Boolean>
+
+Linear Search
+
+Binary Search
+	A Divide and COnquer Algorithm
+	ex: [1,5,8,13,21,100,108]
+	key = 7
+	compares key to the middle of the data
+`	1st step: 7 < 13
+	[1,5,8]
+	2nd step: 7 > 5
+	[8] 
+
+return -1  : NOT FOUND
+
+Convention
+	Let a and b be integers and [a, b) is an interval of integers, then the length of the interval is simply b - a
+
+ex. [0, 3) the length is 3
+
+
