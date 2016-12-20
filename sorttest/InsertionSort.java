@@ -1,11 +1,22 @@
-public class Insertion{
-	public static void main(String args[]){
-		Integer [] data = {6,3,5,76,4,5};
-		walkDown(data, 5);
+public class InsertionSort extends Sort{
 
-	}
 
-	public void InsertionSort(Integer [] data){
+    public InsertionSort(Integer[] data){
+	super(data);
+    }
+    
+    public InsertionSort(){
+	super();
+    }
+
+    public void sort(){
+	_watch.start();
+	insertionSort(_data);
+	_watch.stop();
+
+    }
+
+	public void insertionSort(Integer [] data){
 		for (int i = 0; i < data.length; i++)
 			walkDown(data, i);
 	}
@@ -20,7 +31,7 @@ public class Insertion{
 			else break;
 		}
 
-		for (Integer x : data)
-			System.out.println(x);
 	}
+
+
 }
