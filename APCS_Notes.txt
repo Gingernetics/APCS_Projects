@@ -562,4 +562,18 @@ Convention
 
 ex. [0, 3) the length is 3
 
+[See notes on Selection, Insertion and Bubble Sorts, as well as O()]
 
+12/21/16
+Two dimensional arrays:
+Integer [][] array = new Integer[3][3]
+
+default for all primitive numbers in zero
+default for boolean in array is false
+default for objects in array are null
+
+Row Major Order-
+Processing an array row by row.
+
+Matrix addition
+A + B + C
