@@ -4,12 +4,21 @@ public class matrixTesting{
 				{65,55,80,0},
 				{80,90,100,0},
 				{0,0,0,0}};
+	static int [][] b = {	{9,8},
+				{6,5}};
+	static int [][] c = {	{9,8},
+				{6,5}};
+	
 			
 	public static void main(String args[]){
 		test(a);
 		printArray(a);
 		testnums(a);
 		printArray(a);
+		printArray(b);
+		printArray(add(b,c));
+		printArray(transpose(a));
+		
 	
 	}
 	
@@ -49,10 +58,47 @@ public class matrixTesting{
 	}
 
 	public static int[][] add(int [][] a, int [][]b){
-		int [][]c = new int[a.length][a[0].length]
+		int [][]c = new int[a.length][a[0].length];
 		for (int i = 0; i < a.length; i++){
 			for (int j = 0; j < a[i].length; j++){
 				c[i][j] = a[i][j] + b[i][j];
 			}
-		}				
+		}
+		return c;
+	}				
+
+	//Assume the matrix is NxN
+	public static int[][] transpose(int[][] a){
+		int length = a.length;
+		for (int row = 0; row < length; row++){
+			for (int col = row + 1; col < length; col++){
+				int temp = a[col][row];
+				a[col][row] = a[row][col];
+				a[row][col] = temp;
+			}
+		}
+		return a;
+	}
+
+	//Matrix is not null, no irregular  
+	public static int[][] transposeAll(int[][] a){
+		int[][] answer = int[a.length][a[0].length]
+	}
+		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
