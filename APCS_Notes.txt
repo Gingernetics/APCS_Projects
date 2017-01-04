@@ -577,3 +577,14 @@ Processing an array row by row.
 
 Matrix addition
 A + B + C
+
+outer:
+for(){
+	inner:
+	for(){
+		if(){
+			ans = newPoint();
+			break outer;
+		}
+	}
+}
