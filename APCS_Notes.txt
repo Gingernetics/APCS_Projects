@@ -546,7 +546,7 @@ Boolean implements Comperable<Boolean>
 Linear Search
 
 Binary Search
-	A Divide and COnquer Algorithm
+	A Divide and Conquer Algorithm
 	ex: [1,5,8,13,21,100,108]
 	key = 7
 	compares key to the middle of the data
@@ -588,3 +588,51 @@ for(){
 		}
 	}
 }
+
+1/5/17
+
+The List ADT 
+Abstract Data Type (ADT)- defined by operstion and behavior - doesn't have to be implemented as an abstract class (set is also an ADT)
+
+In Java, a list is a ADT that represents a collection defined in the List<E> interface
+
+List<E> Interface
+	import java.util.List;
+	uses generics: List <Integer>, List <String>
+	A List is a refrence type
+	A List cannot be instantiated
+		BAD: new List<String>   
+	A List is an iterable collection
+		Both versions of for loop are supported
+	
+	Capabilities:
+		List<Integers> L = <some concrete data structure>
+		
+		int size();				O(1)
+		boolean add(E obj);			O(1) except in rare cases O(x)
+		void add(int index, E obj);		O(x)
+		E get(int index);			O(1)
+		E set(int index, E obj);		O(1)
+		E remove(int index);			O(x) except when removing last element
+
+		Invoked Method		Value Returned		State of L after method is invoked
+		L.size()			0				[]
+		L.add(3);			true				[3]
+		L.add(1);			true				[3,1]
+		L.add(0,4);			void				[4,3,1]
+		L.add(3,7);			void				[4,3,1,7]
+		L.get(2);			1				[4,3,1,7]
+		L.set(2,5);			1				[4,3,5,7]
+		L.remove(0);			4				[3,5,7]
+
+		List<Integer> L = [3,4,...,5];
+		int ans = 0;
+		for(int i = 0; i < L.size(); i++)
+			ans += L.get(i);
+
+		for(Integer i : List)
+			ans += i;
+
+		//Switching first and last element with one line of code
+		L.set(0, L.set(last,L.get(0)));
+
