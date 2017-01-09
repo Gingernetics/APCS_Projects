@@ -35,10 +35,13 @@ public class FooSet{
        //                in the FooSet or the string is not the 
        //                correct length, it is not added and false
        //                is returned.
-       public boolean addFoo(String entry){
+       public boolean addFoo(String entry){ //Add to end, so it is a O(n) linear
            if (!found(entry) && entry.length() == _fooLength){
 		int i = (int) (Math.random() * (_availableFoos.size() + 1));
 		_availableFoos.add(i, entry);
+	}
+		return false;
+
        }
 
        // precondition: the FooSet is not empty.
@@ -46,8 +49,13 @@ public class FooSet{
        //                string entry from FooSet.
        public String removeRandomFoo(){
        	      int i = (int) (Math.random() * _availableFoos.size());
-		_availableFoos.remove(i);
+		if(i != _availableFoos.size() - 1)
+		return _availableFoos.set(i,_availableFoos.remove(_fooLength - 1));
+		else
+		return _availableFoos.remove(_availableFoos.size() - 1);
        }
+
+
 
        //postcondition: returns length of a foo.
        public int getLength(){
@@ -58,9 +66,16 @@ public class FooSet{
        // postcondition : attempts to fill the FooSet
        //                 with the strings contained in foos
        public void fillFooSet(String [] foos){
-       	      // *** Code goes here ***
+       	    for(String x: foos)
+		addFoo(x);
        }
 
+	/*
+	FooSet foos = new FooSet(3);
+	String [] animals = {"cat", "dog", "ape"};
+	foos.fill(animals)
+
+	*/
 
 
        // postcondition: returns true if the set is empty;
@@ -69,7 +84,7 @@ public class FooSet{
 		if (_availableFoos.size() == 0)
 			return true;
 		else
-			false;
+			return false;
 	}
 
 
@@ -89,6 +104,11 @@ public class FooSet{
 	System.out.println(h);
 	h.addFoo("cd");
 	System.out.println(h);
+	h.addFoo("yj");
+	System.out.println(h);
+	h.addFoo("cdrt");
+	System.out.println(h);
+	
 
     }
 
