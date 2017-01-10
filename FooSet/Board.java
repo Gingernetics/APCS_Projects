@@ -1,5 +1,5 @@
 public class Board{
-       private Tile [] _gameBoard; // concentration board of Tiles
+       private ArrayList<Tile> _gameBoard; // concentration board of Tiles
        private int _size;   // number of Tiles on board
        private int _rowLength; // number of Tiles printed in a row
        private int _numberOfTilesFaceUp; // number of Tiles face-up
@@ -12,10 +12,14 @@ public class Board{
        // FooSet contains at least n * n / 2 strings.
        public Board(int n, FooSet foos){
 		_size = n*n;
-		_gameBoard = new Tile[_size];
+		_gameBoard = new ArrayList<List>();
 		_rowLength = n;
 		_numberOfTilesFaceUp = 0;
 		_possibleTileValues = foos;
+		fillBoard();
+		for(Tile x : _gameBoard){
+			x.turnFaceDown();
+		}
 	}
 
 
@@ -25,15 +29,27 @@ public class Board{
        // Precondition: number of positions on board is even.
        // possibleTileValues contains at least size / 2 elements.
        private void fillBoard(){
-	for (Tile x : _gameBoard){
-		x = Tile;
+	for (int i = 0; i < _size; i += 2){
+		String foo = _possibleTileValue.removeRandomFoo();
+		_gameBoard.add(new Tile(foo));
+		_gameBoard.add(new Tile(foo));
+	}
+	shuffle(_gameBoard);
+	}
+
+	private void shuffle (List <Tile> L){
+		for (int i = 0; i < _size; i ++){
+			int r = (int) (Math.random()*L.size() - i) + i;
+			L.set(i, L.set(r, L.get(i)));
+		}
 	}
 
        //Precondition: Tile in position p is face-down.
        //Postcondition: Tile in postion p is face-up.
        public void lookAtTile(int p){
-		_gameBoard[p].turnFaceUp();
-		_gameBoard[p] = _gameBoard[p].showFace();
+		_gameBoard.get(p).turnFaceUp();
+		_gameBoard.get(p) = _gameBoard.get(p).showFace();
+		_numberOfTilesFaceUp++;
 		}
 
        //Checks whether the Tile in pos1 and pos2 have the same image.
@@ -41,7 +57,8 @@ public class Board{
        // are turned face-down.
        // Precondition: _gameBoard[pos1] is face-up.
        // _gameBoard[pos2] is face-up.
-       public void checkMatch(int pos1, int pos2){}
+       public void checkMatch(int pos1, int pos2){
+		if (_gameBoard.get(pos1)}
 
        // Board is printed for the player. If the Tile is turned face-up,
        // the image is printed. If the Tile is turned face-down,
@@ -55,18 +72,13 @@ public class Board{
 	}
 
        // Returns right-justified number with p places as a string.	
-       /*public String format(String word, int p){
+       public String format(String word, int p){
 
 	}
-*/
+
        // Returns true if all Tiles are turned face-up, false otherwise.
        public boolean allTiles(){
-		boolean ans = true;
-		for (Tile x : _gameBoard)
-			if (!x.isFaceUp()){
-				ans = false;
-				break;
-			}
+		return (_size == _numberOfTilesFaceUp);
 		
 	}
 
