@@ -1,6 +1,7 @@
 *.class
 *.java~
 *.txt~
+*.py~
 
 # BlueJ files
 *.ctxt
