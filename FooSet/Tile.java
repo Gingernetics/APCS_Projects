@@ -17,11 +17,14 @@ public class Tile{
        }
        
        // returns image on face of Tile
-       public String showFace(){}
+       public String showFace(){
+		return _image;
+	}
 
        // Returns true if Tile is face-up, false otherwise.
        public boolean isFaceUp() {
-		return _faceUp;}
+		return _faceUp;
+		}
 
        // Returns true if the image on other is the same as this image.
        public boolean equals (Object other){
@@ -30,11 +33,13 @@ public class Tile{
 
        // Postcondition: Tile is turned face-up
        public void turnFaceUp(){
-		_faceUp = true;}
+		_faceUp = true;
+	}
 
        //Postcondition: Tile is turned face-down
        public void turnFaceDown(){
-		_faceUp = false;}
+		_faceUp = false;
+	}
 
        // returns the image when the tile is face-up
        // otherwise returns "X"
