@@ -1,12 +1,17 @@
 /**
- * A program to carry on conversations with a human user.
- * This version: 
- * <ul><li>
- *    Uses advanced search for keywords 
- * </li></ul> 
- *    
- * @author Laurie White
- * @version April 2012
+Iteration   psn     before      after
+findKeyword("She's my sister", "sister", 0);
+    1       9       " "         N/A
+findKeyword("Brother Tom is helpful", "brother", 0);
+    //case-insensitive method
+    1       0       N/A         " "
+findKeyword("I can't catch wild cats.", "cat", 0);
+    1       8       " "         "c"
+    2       19      " "         "s"
+findKeyword("I know nothing about snow plows.", "no", 0);
+    1       3       "k"         "w"
+    2       7       " "         "t"
+    3       22      "s"         "w"
  */
 public class Magpie3
 {

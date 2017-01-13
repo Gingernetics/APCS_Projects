@@ -8,7 +8,7 @@ public class Hadamard{
        	public static void Hadamard(int n){
 		int pow = (int) java.lang.Math.pow(2,n);
        		_mat = new boolean[pow][pow];
-		filler(n, pow);		
+		filler(n - 1);		
        	}
 
        	// postcondition: prints the Hadamard matrix
@@ -24,13 +24,13 @@ public class Hadamard{
 		}
        	}
 
-	public static void filler(int n, int pow){
+	public static void filler(int n){
 		_mat[0][0] = true;
 		for (int i = 0; i <= n; i++){
 			int step = (int) java.lang.Math.pow(2,i);
-			for(int row = step; row < step + 1; row++){
-				for(int col = step; col < step + 1; col++){
-					_mat[row][col] = _mat[row - step][col - step];
+			for(int row = 0; row < step; row++){
+				for(int col = step - 1; col < step; col++){
+					_mat[row][col] = _mat[row][col - step + 1];
 				}
 			}	
 		
@@ -46,7 +46,7 @@ public class Hadamard{
 	}
 
 	public static void main(String args[]){
-		Hadamard(Integer.parseInt(args[0]));
+		Hadamard(2);
 		print();
 	}
 
