@@ -215,4 +215,40 @@ for (int col = 3; col <= 18; col++)
 
 Activity 9:
 
+public void edgeDetection(int edgeDist){
+
+	//instance variables
+    	Pixel leftPixel = null;
+   	Pixel rightPixel = null;
+	Pixel botPixel = null;
+    	Pixel[][] pixels = this.getPixels2D();
+    	Color rightColor = null;
+	Color botColor = null;
+
+	//running through .jpg
+    for (int row = 0; row < pixels.length; row++){
+      for (int col = 0; col < pixels[0].length-1; col++){
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+	rightColor = rightPixel.getColor();
+
+	//only assigns nonnull value to botPixel if not last row
+	if (row < pixels.length - 1){
+		botPixel = pixels[row + 1][col];
+		botColor = botPixel.getColor();}
+
+	//If there is a big difference, pixel changed to black -- else white
+        if ((leftPixel.colorDistance(rightColor) > 
+            edgeDist) || (botPixel != null && botPixel.colorDistance(botColor) > edgeDist))
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+  }
+
+Different Algorithms for Edge Detection
+-Play around with comparing top/bot/left/right pixels
+-
+
 	
