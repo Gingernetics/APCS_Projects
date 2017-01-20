@@ -62,7 +62,153 @@ Activity 4:
 }
 
 Activity 5:
+1. Open Picture.java and look for the method getPixels2D. Is it there? 
+	No
 
+2. Open SimplePicture.java and look for the method getPixels2D. Is it there? 
+	Yes
+
+3. Does the following code compile? DigitalPicture p = new DigitalPicture(); 
+	No
+
+4. Assuming that a no-argument constructor exists for SimplePicture, would the following code compile? DigitalPicture p = new SimplePicture(); 
+	Yes
+
+5. Assuming that a no-argument constructor exists for Picture, does the following code compile? DigitalPicture p = new Picture(); 
+	Yes
+
+6. Assuming that a no-argument constructor exists for Picture, does the following code compile? SimplePicture p = new Picture(); 
+	Yes
+
+7. Assuming that a no-argument constructor exists for SimplePicture, does the following code compile? Picture p = new SimplePicture();
+	No
+
+/** Method to set the blue to 0 */
+  public void zeroBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
+      }
+    }
+  }
+  
+  public void keepOnlyBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  
+  public void negate()
+  {
+    
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(pixelObj.getRed() - 255);
+        pixelObj.setGreen(pixelObj.getGreen() - 255);
+        pixelObj.setBlue(pixelObj.getBlue() - 255);
+      }
+    }
+  }
+  
+  public void grayscale()
+  {
+    
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        int avg = (int) ((pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue()) / 3);
+        pixelObj.setRed(avg);
+        pixelObj.setGreen(avg);
+        pixelObj.setBlue(avg);
+      }
+    }
+  }
+  
+  public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    
+    int redAvg = 0;
+    int greenAvg = 0;
+    int blueAvg = 0;
+    int totalPixels = 0;
+    
+    int maxRed = 0;
+    int minRed = 255;
+    int maxGreen = 0;
+    int minGreen = 255;
+    int maxBlue = 0;
+    int minBlue = 255;
+    
+    for (int row = 26; row < 36; row++)
+    {
+      for (int col = 178; col < 198; col++)
+      {
+        totalPixels++;
+        
+        Pixel myPixel = pixels[row][col];
+        
+        redAvg += myPixel.getRed();
+        greenAvg += myPixel.getGreen();
+        blueAvg += myPixel.getBlue();
+        
+        if (myPixel.getRed() > maxRed) { maxRed = myPixel.getRed(); }
+        if (myPixel.getRed() < minRed) { minRed = myPixel.getRed(); }
+        if (myPixel.getGreen() > maxGreen) { maxGreen = myPixel.getGreen(); }
+        if (myPixel.getGreen() < minGreen) { minGreen = myPixel.getGreen(); }
+        if (myPixel.getBlue() > maxBlue) { maxBlue = myPixel.getBlue(); }
+        if (myPixel.getGreen() < minBlue) { minBlue = myPixel.getBlue(); }
+        
+      }
+    }
+    
+    redAvg = redAvg / totalPixels;
+    greenAvg = greenAvg / totalPixels;
+    blueAvg = blueAvg / totalPixels;
+    
+    Color averageColor = new Color(redAvg, greenAvg, blueAvg);
+    
+    int redRange = (maxRed - minRed);
+    int greenRange = (maxGreen - minGreen);
+    int blueRange = (maxBlue - minBlue);
+    
+    int redDistance = redRange;
+    int greenDistance = greenRange;
+    int blueDistance = blueRange;
+    
+    double maxDistance = Math.sqrt(redDistance * redDistance +
+                                   greenDistance * greenDistance +
+                                   blueDistance * blueDistance);
+   
+    for (int row = 0; row < pixels.length; row++){
+      for (int col = 0; col < pixels[0].length; col++)     {
+        Pixel myPixel = pixels[row][col]; 
+        boolean closeEnough = myPixel.colorDistance(averageColor) < maxDistance * 2; 
+        if (closeEnough)        {
+          myPixel.setBlue(myPixel.getBlue() + 50);
+        }
+        else        {
+          myPixel.setBlue(myPixel.getBlue() - 50);
+        }
+      }
+    }
+  }
 
 Activity 6:
 
@@ -212,6 +358,34 @@ for (int col = 3; col <= 18; col++)
     }
   }
 
+Activity 8:
+public void copySecond(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = 0, toRow = startRow; fromRow < fromPixels.length && toRow < endRow; fromRow++, toRow++)
+    {
+      for (int fromCol = 0, toCol = startCol; 
+           fromCol < fromPixels[0].length &&
+           toCol < endCol;  
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    } 
+  }
+
+//in PictureTester.java
+public void myCollage()
+  {
+      Picture flower1 = new Picture("flower1.jpg");
+      this.copySecond(flower1,10,20, 0, 100);
+      this.write("mycollage.jpg");
+  }
 
 Activity 9:
 
