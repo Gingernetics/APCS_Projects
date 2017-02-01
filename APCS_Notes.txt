@@ -665,7 +665,17 @@ ex. reverse("desserts") --> "stressed"
 
 public static String reverse(String s){
 	int length = s.length();
-	if (length == 1)
+	if (length <= 1)
 		return s;
 	return s.substring(length - 1) + reverse(s.substring(0,length - 1));
 } 
+
+public static String commas(int a){
+	public static String commas(int a){
+	if (a < 1000)
+		return a + "";
+	String t = a + "";
+	return commas(a / 1000)  + "," + t.substring(t.length() - 3);
+	} 
+} 
+
