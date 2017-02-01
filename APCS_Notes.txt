@@ -667,5 +667,5 @@ public static String reverse(String s){
 	int length = s.length();
 	if (length == 1)
 		return s;
-	return reverse(s.substring(0;length - 2)) + s.substring(length - 1);
+	return s.substring(length - 1) + reverse(s.substring(0,length - 1));
 } 
