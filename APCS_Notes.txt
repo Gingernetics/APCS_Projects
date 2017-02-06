@@ -679,3 +679,19 @@ public static String commas(int a){
 	} 
 } 
 
+Looks for min
+public static int compute(int [] a , int n){
+	if( n == 0 || a[n] < compute(a, n - 1))
+		return a[n];
+	return compute(a, n - 1);
+}
+
+public static int compute(int [] a , int n){
+	if (n == 0) return a[0];
+	int x = compute(a, n - 1);
+	if (a[n] < x) return a[n];
+}
+
+For Big O notation, n represents the size of the array gone through
+
+
