@@ -9,19 +9,27 @@ public class Roman{
 
     public static String numerals(int n){
     	int[] v = {1,5,10,50,100,500,1000};
-	String[] d = {"I","V","X","L","C","D","M","TOO FAR"};
+	String[] d = {"I","V","X","L","C","D","M"};
 	if (n > 3999) return "Out of bounds";
 	for (int i = 6; i >= 0; i--){
-		if (n < v[i]){
-			if (n + 1 == v[i]) return "I" + d[i] + numerals(n - v[i]) ;
-			if (n + v[i - 1] == v[i]) return d[i - 1] + d[i] + numerals(n - v[i]) ;
-			else continue;
-		}
 		if (n == v[i])
 			return d[i];
+		if (n < v[i]){
+			if (n + 1 == v[i]) return "I" + d[i]; //+ numerals(v[i] - n) ;
+			if (n != 5 && n != 50 && n + v[i - 1] == v[i]) 
+				return d[i - 1] + d[i]; //numerals(n - v[i - 1]) + d[i];
+			else continue;
+		}
+		/*
+		if (n > v[i]){
+			return numerals(n -(n % v[i - 1])) + numerals(n % v[i - 1]);
+		}
+		*
+		/*
 		if (n > v[i]){
 			return d[i] + numerals(n - v[i]);
 		}
+		*/
 	}
 	return "";
     }
@@ -33,7 +41,7 @@ public class Roman{
     
 
     public static void main(String [] args){
-	int n = 200;
+	int n = 100;
 	for (int i = 1; i < n; i++){
 	    System.out.println(new Roman(i));
 	}
