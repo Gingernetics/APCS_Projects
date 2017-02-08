@@ -1,0 +1,26 @@
+
+
+
+Iterative version of binary search.
+==================================
+
+ public static int binarySearch(int[] array, int key){
+        int ans = -1;
+        // Search for key in array[lowerBound, upperBound).
+        int lowerBound = 0, upperBound = array.length ;
+        int middle;
+        int comp;
+        
+        while (lowerBound < upperBound){
+            middle = lowerBound + (upperBound - lowerBound) / 2;
+            if (key == array[middle]){
+                ans = middle;
+                break;
+            }
+            else if (key > array[middle]){
+                lowerBound = middle + 1;
+            }
+            else upperBound = middle;
+        }
+        return ans;
+    }

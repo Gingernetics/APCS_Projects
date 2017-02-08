@@ -730,6 +730,15 @@ m("mystery") --> yretsym
 	O(n)
 Big O for recursion is number of function calls
 
+2/8/17
+1. Why is the middle calculated as 
+	middle = lowerBound + (upperBound - lowerBound)/2;
+		Integer Overflow is a problem
+2. What is the expected runtime of the binary search?
+		log(n)
+3. Given {10,5,233,14,7,11}, which keys will be found?
+		14, 5
 
-
+Email both programs (Roman and BinarySearchR class)
+	rick.platek@stuycs.org
 
