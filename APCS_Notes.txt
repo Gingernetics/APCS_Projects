@@ -742,3 +742,15 @@ Big O for recursion is number of function calls
 Email both programs (Roman and BinarySearchR class)
 	rick.platek@stuycs.org
 
+Merge List w/o allocation
+O(n^2) expected runtime
+O(1) Additional Memory
+
+Merge List w/ allocation
+O(n) expected runtime
+O(n) Additional Memory
+
+Other algorithms are able to reduce runtime, at cost of memory
+
+
+
