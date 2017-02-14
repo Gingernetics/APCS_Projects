@@ -12,9 +12,7 @@ public class MergeList{
            while (bLow < bHigh){
 		int i = bLow;
 		while(i > aLow && data.get(i - 1) > data.get(i)){
-			int temp = data.get(i);
-			data.set(i, data.get(i - 1));
-			data.set(i, temp);
+			data.set(i - 1, data.set(i, data.get(i - 1)));
 			i--;
 		}
 		bLow++;
@@ -41,7 +39,20 @@ public static void mergeInPlace(int[] data, int aLow, int bLow, int bHigh){
 	//              the data within [bLow, bHigh) is sorted in ascending order
 	// postcondition: return of copy of the data in ascending order
 	public static List<Integer> merge(List<Integer> data, int aLow, int bLow, int bHigh){
-	  // your code goes here
+		int n = bHigh - aLow;
+		 List<Integer> output = new ArrayList<Integer>();
+		int aHigh = bLow;
+		for (int i = 0; i < n; i++){
+			if(aLow >= aHigh)	
+				output.add(data.get(bLow++));
+			else if (bLow >= bHigh)
+				output.add(data.gat(aLow++));
+			else if (data.get(aLow) < data.get(bLow))
+				output.add(data.get(aLow++));
+			else
+				output.add(bLow++);
+		i++;
+		
 	}
 /*
     public static int[] merge(int [] data, int aLow, int bLow, int bHigh){

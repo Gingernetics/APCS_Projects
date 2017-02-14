@@ -752,5 +752,32 @@ O(n) Additional Memory
 
 Other algorithms are able to reduce runtime, at cost of memory
 
+2/14/17
+SORTS!!!!!
+-Selection
+-Insertion
+-Merge Sort
+-Quick Sort
 
+Big O is necessary!
 
+Merge Sort Algorithm:
+Phase 1: Divide the data set into halves until the length of each region is less than two
+Phase 2: Merge each adjacent region untilall the data is merged
+
+Trace (Merge Sort : Top Down Recursive Version)
+data: 85, 2, 12, 33, 45, 3, 4, 11
+85, 2, 12, 33 		45, 3, 4, 11
+85, 2	12, 33		45, 3	4, 11
+85	2	12	33	45	3	4	11
+2, 85	12, 33		3, 45	4, 11
+2, 12, 33, 85		3, 4, 11, 45
+2, 3, 4, 11, 12, 33, 45, 85
+
+Height of tree will be roughly be log(n)
+
+Mergen elements is O(n)
+Merge Sort is O(nlogn) 
+
+Insertion sort is O(n^2)
+Both insertion sort and merge sort are data insensitive
