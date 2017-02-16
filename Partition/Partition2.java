@@ -57,7 +57,6 @@ public class Partition2{
 		for (int i = 0; i < data.length; i++){
 			if (data[i] < min){
 				min = data[i];
-				break;
 			}
 		}
 		int count = 0;
@@ -80,6 +79,11 @@ public class Partition2{
 				bocount++;				
 			}		
 		}
+		partition2(breakoff);
+		for (int i = 0; i < hold.length; i++)
+		    data[i] = hold[i];
+		for (int i = 0; i < breakoff.length; i++)
+		    data[i + hold.length] = breakoff[i];   
 	}
 
 	
