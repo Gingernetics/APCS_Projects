@@ -781,3 +781,27 @@ Merge Sort is O(nlogn)
 
 Insertion sort is O(n^2)
 Both insertion sort and merge sort are data insensitive
+
+Partition function (linear runtime)
+
+public static void partition(int [] data){
+	if(data.length == 0 || isSorted(data)) return;
+	int min = data[0];
+	for (int i = 0; i < data.length; i++){
+		if (data[i] < min){
+			min = data[i];
+			break;
+		}
+	}
+	int pos = 0;
+	int r = data.length - 1;
+	while (pos < r){
+		if (data[pos] > min){
+			exch(data, pos, r--);
+		}
+		else pos++;
+	}
+}
+
+
+
