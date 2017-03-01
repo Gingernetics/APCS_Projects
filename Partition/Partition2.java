@@ -38,7 +38,8 @@ public class Partition2{
     // *************** QUESTION 3 *****************************************
     // precondition: data.length != null
     //               has at most 2 different values.
-    public static void partition2(int[] data){
+    //public static void partition2(int[] data){
+/*
 		for (int i = 0, j = data.length - 1; i < j; i++, j--){
 			if (data[i] > data[i + 1]){
 				exch(data, i, i + 1);
@@ -49,6 +50,43 @@ public class Partition2{
 				partition(data);
 			}
 		}
+  
+  }
+*/
+    public static void partition2(int[] data){
+	int left = 0, right = data.length - 1;
+	int curr = left;
+	while (curr < data.length && data[curr] == data[left] &&
+	       data[curr] == data[right]) curr++;
+
+	// all the values are the same.
+	if (curr >=  data.length) return;
+
+	// There are two different values.
+	// Put the min to left, max to right
+	if (data [curr] < data[left])
+	    exch(data,curr,left);
+	// left has min, curr has max
+	if (data[curr] > data[right])
+	    exch(data,curr,right);
+	// right has max
+	left++;
+	right--;
+	curr = left;
+	// Invariant : every value to the left of left is min
+	//             every value to the right of right is max
+	while (left <= right){
+	    if (data[curr] == data[left - 1]){
+		exch(data,curr,left);
+		left++;
+	    }
+	    else{
+		exch(data,curr,right);
+		right--;
+	    }
+	    curr = left;
+	}
+       
     }
 
 	public static void partition(int[] data){
@@ -57,9 +95,39 @@ public class Partition2{
 		for (int i = 0; i < data.length; i++){
 			if (data[i] < min){
 				min = data[i];
+			}
+		}
+		int left = 0;
+		for (int i = 0; i < data.length; i++){
+			if (data[i] == min){
+				exch(data, left, i);
+				left++;
+			}
+		}
+		int border = left;
+		min = data[border];
+		for (int i = border; i < data.length; i++){
+			if (data[i] < min){
+				min = data[i];
 				break;
 			}
 		}
+		for (int i = border; i < data.length; i++){
+			if (data[i] == min){
+				exch(data, left, i);
+				left++;
+			}
+		}
+/*
+while (low < high){
+	if (data[low] == min) low++;
+	else if (data[high] == min){
+		exch(data,low,high);
+		high--;
+		low++;
+	}
+	else high++;
+}
 		int count = 0;
 		for (int i = 0; i < data.length; i++){
 			if (data[i] == min){
@@ -80,6 +148,14 @@ public class Partition2{
 				bocount++;				
 			}		
 		}
+		partition2(breakoff);
+		for (int i = 0; i < data.length; i++){
+			if (i < hold.length)
+				data[i] = hold[i];
+			else
+				data[i] = breakoff[i - hold.length];
+		}
+*/
 	}
 
 	

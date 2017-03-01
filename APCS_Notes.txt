@@ -803,5 +803,75 @@ public static void partition(int [] data){
 	}
 }
 
+//Dutch Flag Problem
+while (low < high){
+	if (data[low] == min) low++;
+	else if (data[high] == min){
+		exch(data,low,high);
+		high--;
+		low++;
+	}
+	else high++;
+}
+
+QUICKSORT
+Data: 3, 8, 2, 1, 7, 9, 4
+
+Pivot 3: 3, 8, 2, 1, 7, 9, 4
+	 L		   R
+(advance left): 3, 8, 2, 1, 7, 9, 4
+		   L		  R
+(advance right): 3, 8, 2, 1, 7, 9, 4
+		    L	  R
+L < R: 3, 1, 2, 8, 7, 9, 4
+	  L	R
+(advance left): 3, 1, 2, 8, 7, 9, 4
+			R,L
+(8 is first entry greater tan pivot)
+(advance right): 3, 1, 2, 8, 7, 9, 4
+		       R  L
+L >= R: 2, 1, 3, 8, 7, 9, 4
+Pivot switched with R when R crosses
+2 becomes Pivot
+
+			Runtime		Additional Space
+QuickSort	Expected: O(nlogn)	O(1)
+		Worst Case: O(n^2)	O(1)
+MergeSort		O(nlogn)	O(n)
 
 
+Node Data Type:
+	Store a value (String) and a reference to another node
+		_value = "a" _next = null
+
+Linked List:
+	A recursive data structure
+	Is either empty(null) or a node whose _next attribute refrences a linked list
+
+Example:
+	Node head = null; // head -> null
+	head = new Node("b"); //head -> b -> null
+	head = newNode("a",head); //head -> a -> b -> null
+
+	head.getValue(); //"a"
+	head.getNext(); //Node that stores "b"
+	head.getNext().getValue(); // "b"
+	head.getNext().getNext(); //null
+	head.getNext().getNext().getValue(); //NullPointerException (Runtime Error)
+	head = head.getNext();
+	head.getValue(); //"b"
+		Node with value "a" has no references to it, data is lost and is eventually picked up by garbage collector.
+
+	head.getNext().setNext(new Node("c"));
+
+public static int length(Node h){
+	if (h == null) return 0;
+	if (h.getNext() == null) return 1;
+	else return length(h.getNext()) + 1;
+}
+
+public static String print(Node h){
+	if (h == null) return "";
+	if (h.getNext() == null) return h.getValue();
+	else return h.getValue() + print(h.getNext());
+}
