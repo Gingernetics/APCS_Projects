@@ -870,8 +870,14 @@ public static int length(Node h){
 	else return length(h.getNext()) + 1;
 }
 
-public static String print(Node h){
-	if (h == null) return "";
+public static void print(Node h){
+	if (h == null) return;
 	if (h.getNext() == null) return h.getValue();
 	else return h.getValue() + print(h.getNext());
+}
+
+public static String reversePrint(Node h){
+	if (h == null) return "";
+	if (h.getNext() == null) return h.getValue();
+	else return reversePrint(h.getNext()) + h.getValue();
 }

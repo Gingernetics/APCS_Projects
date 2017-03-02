@@ -95,6 +95,7 @@ public class Partition2{
 		for (int i = 0; i < data.length; i++){
 			if (data[i] < min){
 				min = data[i];
+<<<<<<< HEAD
 			}
 		}
 		int left = 0;
@@ -110,6 +111,8 @@ public class Partition2{
 			if (data[i] < min){
 				min = data[i];
 				break;
+=======
+>>>>>>> dcfcf753a3fc4c289cad15d99f157b260a722581
 			}
 		}
 		for (int i = border; i < data.length; i++){
@@ -149,6 +152,7 @@ while (low < high){
 			}		
 		}
 		partition2(breakoff);
+<<<<<<< HEAD
 		for (int i = 0; i < data.length; i++){
 			if (i < hold.length)
 				data[i] = hold[i];
@@ -156,6 +160,12 @@ while (low < high){
 				data[i] = breakoff[i - hold.length];
 		}
 */
+=======
+		for (int i = 0; i < hold.length; i++)
+		    data[i] = hold[i];
+		for (int i = 0; i < breakoff.length; i++)
+		    data[i + hold.length] = breakoff[i];   
+>>>>>>> dcfcf753a3fc4c289cad15d99f157b260a722581
 	}
 
 	

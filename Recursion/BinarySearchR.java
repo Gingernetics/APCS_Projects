@@ -20,9 +20,9 @@ public class BinarySearchR{
     public static int binarySearchHelper(int[] x, int key , int low, int high){
 		int middle = low + (high - low) / 2;
 		if (key == x[middle]) return middle;
-            	else if(x.length != 1){
-			if (key > x[middle]) return binarySearchHelper(x, key, middle + 1, x.length);
-	        	else return binarySearchHelper(x, key, 0, middle);
+        if(low != high){
+		    if (key > x[middle]) return binarySearchHelper(x, key, middle + 1, x.length);
+	        else return binarySearchHelper(x, key, 0, middle);
 			}
 		else return -1;
     }
@@ -32,7 +32,7 @@ public class BinarySearchR{
 	int [] array = {0,2,4,6,8,10,12};
 	printArray(array);
 	
-	for(int key = -1; key < 14; key++){
+	for(int key = -1; key < 11; key++){
 	    System.out.println(key + " at " + binarySearchR(array,key));
 	}
 
