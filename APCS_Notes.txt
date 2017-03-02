@@ -872,12 +872,35 @@ public static int length(Node h){
 
 public static void print(Node h){
 	if (h == null) return;
-	if (h.getNext() == null) return h.getValue();
-	else return h.getValue() + print(h.getNext());
+	System.out.println(h.getValue());
+	print(h.getNext());
 }
 
-public static String reversePrint(Node h){
-	if (h == null) return "";
-	if (h.getNext() == null) return h.getValue();
-	else return reversePrint(h.getNext()) + h.getValue();
+public static void print(Node h){
+	while (h != null){
+		System.out.println(h.getValue();)
+		h = h.getNode();
+	}
+
 }
+
+public static void reversePrint(Node h){
+	ArrayList <String> s = new ArrayList<String>();
+	while (h != null){
+		s.add(h.getValue());
+	}
+	for (int i = s.size() - 1; i >= 0; i--)
+		System.out.println(s.get(i));
+}
+
+Adding elements to a list:
+public static Node addFirst(Node h, String h){
+	return new Node(s,h);
+}
+
+public static Node addLast(Node h, String h){
+	if (h == null) return new Node(s);
+	else addLast(h.getNext(), h);
+}
+
+
