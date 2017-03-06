@@ -893,14 +893,56 @@ public static void reversePrint(Node h){
 		System.out.println(s.get(i));
 }
 
+3/6/17
+Linked Nodes
+
 Adding elements to a list:
-public static Node addFirst(Node h, String h){
-	return new Node(s,h);
+public static Node addFirst(Node h, String s){
+	return new Node(s,null);
 }
 
+//This version is memory-intensive, creates a copy of each node
 public static Node addLast(Node h, String h){
 	if (h == null) return new Node(s);
-	else addLast(h.getNext(), h);
+	else return addFirst(addLast(h.getNext(), h), h.getValue());
 }
 
+//recursive
+public static Node addLast(Node h, String s){
+	if(h.getNext() == null) return addFirst(h, s);
+	h.setNext(addLast(h.getNext(), s);
+	return h;
+}
 
+//iterative
+public static Node addLast(Node h, String s){
+	Node front = h;
+	if (h == null) return addFirst(h, s);
+	while (h.getNext() != null) h = h.getNext();
+	h.setNext(new Node(s));
+	return front;
+}
+
+//recursive
+public static Node search(Node h, String s){
+	if(h == null || s.equals(h.getValue())) return h;
+	return search(h.getNext(), s);
+}
+
+//iterative
+public static Node search(Node h, String s){
+	if(h == null || s == h.getValue()) return h;
+	while (h.getNext() != null && !s.equals(h.getValue())) 
+		h = h.getNext();
+	return h;
+}
+
+public static Node removeFirst(Node h, String s){
+//removes the first occurennce of s from the linked
+//list starting at h also returns the head of the
+//modifed linked list
+
+//Ex: Node h = ... //h -> a -> b -> a -> b -> null
+// h = removeFirst(h, "b"); //h -> a -> a -> b -> null
+	if (h == null) return h;
+	if (s.equals(h.getValue())) h
