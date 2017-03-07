@@ -944,5 +944,6 @@ public static Node removeFirst(Node h, String s){
 
 //Ex: Node h = ... //h -> a -> b -> a -> b -> null
 // h = removeFirst(h, "b"); //h -> a -> a -> b -> null
-	if (h == null) return h;
-	if (s.equals(h.getValue())) h
+	
+}
+
