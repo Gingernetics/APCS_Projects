@@ -30,27 +30,74 @@ public class SLinkedList implements List{
     /* required by List interface. */
     // postcondition: adds val to the end of the list
     public boolean add(String val){
+	Node h = _tail;
+	Node a = new Node(val);
+	if (_head == null){
+		_head = a;
+		_tail = a;
+	}
+	else {
+		while (h.getNext() != null) h = h.getNext();
+		h.setNext(a);	
+		_tail = a;
+	}
+	_size++;
 	return true;
     }
-
+/*
     // postcondition: inserts val at index
-    //               
-    public void add(int index, String val){
-	if (index > size() ) throw new IndexOutOfBoundsException("index > size + 1");
-    }
+    //     O(n)          
+    public boolean add(int index, String value){
+	if (index < 0 || index > size())
+		throw new IndexOutOfBoundsException("index < 0 || index > size()");
+	Node h = _head;
+	Node t = new Node(value);
+	if(index == 0){
+		t.setNext(h);
+		_head = t;
+		if(size() == 0) _tail = t;
+		_size++;
+	}
+	else{
+		for(int i = 0; i < size() - 1; i++)
+			if(i + 1 == index){
+				t.setNext(h.getNext());
+				h.setNext(t);
+				_size++;
+				break;
+			}
+		h = h.getNext();
+	}
+	return true;
+}
+*/
     
     // postcondition: places val at position index; returns
     //                old value at the index.
     //                Throws an IndexOutOfBoundsException()
     public String set(int index, String val){
-	return null;
-	
+	if (index < 0 || index > size())
+		throw new IndexOutOfBoundsException("index < 0 || index > size()");
+	Node h = _head;
+	for (int i = 0; i < index; i++)
+		h = h.getNext();
+ 
+	return h.getValue();
     }
     
     // postcondition: removes and returns the value stored at index.
     //                Throws an IndexOutOfBoundsException
     public String remove(int index){
-	return null;
+	if (index < 0 || index > size())
+		throw new IndexOutOfBoundsException("index < 0 || index > size()");
+	Node h = _head;
+	for (int i = 0; i < index - 1; i++)
+		h = h.getNext();
+	String temp = h.getNext().getValue();
+	Node a = h.getNext().getNext();
+	h.setNext(a);
+	_size--;	
+	return temp;
     }
 
 
