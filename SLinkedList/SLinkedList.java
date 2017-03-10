@@ -100,6 +100,41 @@ public class SLinkedList implements List{
 	return temp;
     }
 
+//O(n)
+    public SLinkedList append(SLinkedList L){
+	SLinkedList ans = new SLinkedList();
+	Node t = this._head;
+	for(int i = 0; i < 2; i++){
+		while (t != null){
+			ans.add(t.getValue());//O(1)
+			t = t.getNext();
+		}
+		t = L._head;
+	}
+	return ans;
+}
+
+	public Node getNode(int index){
+		if (index < 0 || index >= size())
+			throw new IndexOutOfBoundsException("index < 0 || index >= size()");
+		Node curr = _head;
+		while (index-- > 0)
+			curr = curr.getNext();
+		return curr;
+	}
+	
+	// precondition: x and y refer to Nodes in the list
+    	// postcondition: swaps the nodes (not the just the values)
+	public void swap(Node x, Node y){ 
+		Node a = new Node("dummy", x);
+		Node h = _head;
+		for (int i = 0; i < size(); i++){
+			if (h == x)
+				a.setNext(h);
+			
+		
+}
+
 
     // overwrite toString
     public String toString(){

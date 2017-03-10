@@ -21,6 +21,7 @@ public class SLTester{
 	System.out.println("array del 2: " + list.remove(1));
 	System.out.println("size: " + list.size());
 	System.out.println("list: " + list);
+	System.out.println("getNode Test: " + list.getNode(2));
 
 
 
