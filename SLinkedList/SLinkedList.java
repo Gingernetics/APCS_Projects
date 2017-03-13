@@ -126,15 +126,33 @@ public class SLinkedList implements List{
 	// precondition: x and y refer to Nodes in the list
     	// postcondition: swaps the nodes (not the just the values)
 	public void swap(Node x, Node y){ 
-		Node a = new Node("dummy", x);
-		Node h = _head;
-		for (int i = 0; i < size(); i++){
-			if (h == x)
-				a.setNext(h);
-			
-		
-}
+		if (x == y) return ;
+		Node prevX = new Node(null, _head);
+		while (prevX.getNext() != x && prevX.getNext() != y)
+			prevX = prevX.getNext();
+		Node temp;
+		if (prevX.getNext() == y){
+			temp = x;
+			x = y;
+			y = temp;
+		}
+		Node prevY = x;
+		while (prevY.getNext() != y)
+			prevY = prevY.getNext();
+		if(_head == x) _head = y;
+		if(_tail == y) _tail = x;
+		prevX.setNext(y);
+		prevY.setNext(x);
+		Node afterY = y.getNext();
+		y.setNext(x.getNext());
+		x.setNext(afterY);
+	}
 
+	public Node reverse();
+		if (_head == null || _head.getNext() == null) return;
+		else 
+		return this.getNext().reverse().setNext(_head);
+	}
 
     // overwrite toString
     public String toString(){
