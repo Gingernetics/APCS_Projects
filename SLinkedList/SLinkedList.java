@@ -149,9 +149,16 @@ public class SLinkedList implements List{
 	}
 
 	public Node reverse();
-		if (_head == null || _head.getNext() == null) return;
-		else 
-		return this.getNext().reverse().setNext(_head);
+		if (size() > 1){
+			Node temp = _head;
+			_head = _head.getNext();
+			_size--;
+			reverse();
+			_tail.setNext(temp);
+			_tail = temp;
+			temp.setNext(null);
+			_size++;
+		}
 	}
 
     // overwrite toString

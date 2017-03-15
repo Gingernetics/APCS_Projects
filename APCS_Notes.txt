@@ -947,3 +947,28 @@ public static Node removeFirst(Node h, String s){
 	
 }
 
+3/15/17
+Abstract Data Type
+ - Is a data type defined by its behavior and capabilities rather than its implementation
+
+Stack (ADT)
+ - Last in, first out data structure
+ - Stack of pancakes
+
+Stack interface - Stack.java
+	public void push(E item); - Add to the top
+    public E pop();  - Take off the top item of a stack //Empty Stack Exception possible
+    public E peek(); - Look at the top  //Empty Stack Exception possible
+    public boolean empty();
+
+Ex.
+Stack <String> s = <Some Implementation>;
+s.push("a");
+s.push("b");
+s.push("c");
+while (!s.empty())
+	System.out.println(s.pop());
+
+NodeStack
+	Private attribute
+	private Node <E> _head;
