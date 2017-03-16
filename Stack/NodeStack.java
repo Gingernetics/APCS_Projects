@@ -18,7 +18,7 @@ public class Node<E>{
     
 	/*
 	1) Write a static function that uses a stack to reverse a string
-		public static String revers(String word){}
+		public static String reverse(String word){}
 	2) Add the NodeStack method
 		public int search(E value)
 			that returns -1 if value not found or the distance from the top

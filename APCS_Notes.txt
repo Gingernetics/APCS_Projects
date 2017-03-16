@@ -972,3 +972,12 @@ while (!s.empty())
 NodeStack
 	Private attribute
 	private Node <E> _head;
+
+3/16/17
+ALL PREVIOUS EXAMS
+Know quicksort runtime and behavior
+//O(nlogn) runtime
+//worst case O(n^2) runtime 
+//O(1) memory 
+Know List interface, slinkedlist
+Stack interface, implementation of the stack
