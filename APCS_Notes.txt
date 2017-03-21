@@ -981,3 +981,19 @@ Know quicksort runtime and behavior
 //O(1) memory 
 Know List interface, slinkedlist
 Stack interface, implementation of the stack
+
+2. Assume there are 3 array stacks, A, B and C. 
+   A has a capacity of 100 and is full.
+   B has a capacity of 5 and is empty.
+   C has a capacity of 3 and is also empty.
+
+   Using only the transferTo method, how would you get 4 elements into 
+   Stack B.
+	A.transferTo(C); 0 3
+	C.transferTo(B); 3 0
+	A.transferTo(C); 3 3
+	C.transferTo(B); 5 1
+	B.transferTo(A); 0 1
+	C.transferTo(B); 1 0
+	A.transferTo(C); 1 3
+	C.transferTo(B); 4 0
