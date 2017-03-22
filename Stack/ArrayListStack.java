@@ -47,8 +47,7 @@ public class ArrayListStack<E> implements Stack<E>{
     public void transferTo(ArrayStack<E> rhs){
   	 while(!rhs.empty())
 		while(_count != 0){
-    			rhs.push(this.peek());
-			this.pop();
+    			rhs.push(this.pop());
 		}
     }
 
