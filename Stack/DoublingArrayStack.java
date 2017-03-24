@@ -49,8 +49,9 @@ public class DoublingArrayStack<E> implements Stack<E>{
     // ************* Question 5 ******************************
     // reduces the capacity of the stack in half
     public void halfSize(){
-	E[] _newstack = (E[]) new Object[_height / 2];
-	for (int i = 0; i < _height; i++)
+	if (_stack.length < 2) return;
+	E[] _newstack = (E[]) new Object[_stack.length / 2];
+	for (int i = 0; i < _stack.length / 2; i++)
 		_newstack[i] = _stack[i];
 	_stack = _newstack;
     }
@@ -67,8 +68,14 @@ public class DoublingArrayStack<E> implements Stack<E>{
     // if the stack is less than 40% full, then cut the size of
     // the stack in half.
     public E pop(){
-	return null;
-	//Make check for 1!
+	if (empty())
+	    throw new EmptyStackException("can't pop empty stack");
+	E temp = _stack[_height - 1];
+	_stack[_height - 1] = null;
+	_height--;
+	if (_height * 1.0 / _stack.length < .4) 
+		halfSize();
+	return temp;
     }
     
     public String toString(){
@@ -90,13 +97,13 @@ public class DoublingArrayStack<E> implements Stack<E>{
             s.push(i);
             System.out.println("push: " + i + " " + s);
         }
-	/*
+	
         System.out.println("peek: " + s.peek());
 	System.out.println("**************START POPPING**************");
         while (!s.empty()){
             System.out.println("pop: " + s.pop() + " " + s);
         }
-	*/
+	
 
     }
     
