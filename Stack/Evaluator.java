@@ -25,7 +25,7 @@ public class Evaluator{
 	NodeStack<Double> operands = new NodeStack<Double>();
 	for (String i : expTokens){
 		
-		if (i.equals("+") || i.equals("sqrt") || i.equals("-") || i.equals("*") || i.equals("/") || i.equals("%"))
+		if (i.equals("sqrt") || "+-*/%".indexOf(i) >= 0)
 			operators.push(i);
 		else if (i.equals("("))
 			continue;
