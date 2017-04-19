@@ -183,9 +183,7 @@ public class DLinkedList<E> {
 	return temp.getValue();	
     }
 
-    public void takeAll(DLinkedList source, DLinkedList output){
 
-    }
     
 
     //*******************************************************************   

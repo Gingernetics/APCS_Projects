@@ -1007,3 +1007,11 @@ DNode <String> a = new DNode<String>("Amy",null,null);
 DNode <String> b = new DNode<String>("Bill",a,null);
 DNode <String> c = new DNode<String>("Carol",b,null);
 
+Queues:
+All methods have runtime of O(1)
+
+Design and Build ArrayQueue
+1. Use a fixed size array (no resizing!)
+2. Following methods must run in O(1) time:
+	size(), empty(), front(), dequeue(), enqueue(), isFull()
+If full, throw Full queue exception
