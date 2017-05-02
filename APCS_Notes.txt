@@ -1048,3 +1048,77 @@ while (itr.hasNext()){
 	System.out.println(itr.next());
 }
 //output : 1 /n 2
+
+4/27/17
+Binary Tree
+In a binary tree, each node except for the root has one parent. Each node contains refrences to its left and right children; a null value indicates that the corresponding child is not in the tree. A node that doesn't have any children is called a leaf. Each node is a root of a smaller binary tree.
+
+The height of a tree is the length of the longest path from root to leaf. (The number of links between nodes)
+
+Trees are almost always handled recursively
+
+A travesal is when each node is visited. There are 3 common types of tree traversals: inorder, preorder, and postorder
+
+	1
+	/\
+	2 3
+	/  /\
+	4  5  6
+	   /\
+	   7 8
+
+Inorder Traversal
+	1. Go left if possible
+	2. Process that node
+	3. Go right if possible
+
+Ex. 2, 4, 1, 7, 5, 8, 3, 6
+
+Preorder Traversal
+	1. Process the node
+	2. Go left if possible
+	3. Go right if possible
+
+Ex. 1, 2, 4, 3, 5, 7, 8, 6
+
+Postorder Traversal
+	1. Go left if possible 
+	2. Go right if possible
+	3. Process the node
+
+Ex. 4, 2, 7, 8, 5, 6, 3, 1
+
+HiddenWord puzzle = new HiddenWord("HARPS");
+
+preorder: 1, 8, 3, 10, 7, 9, 11
+inorder: 10, 3, 8, 1, 9, 7, 11 XINCORRECTX
+	8, 3, 10, 1, 9, 7, 11
+postorder: 10, 3, 8, 9, 11, 7, 1
+
+Given the following traversals, find the binary tree
+
+inorder: 3, 10, 8, 4, 9, 7, 11
+preorder: 4, 8, 3, 10, 7, 9, 11
+postorder: 10, 3, 8, 9, 11, 7, 4
+
+		4
+		/ \
+		8  7
+	       /   /\
+	      3   9 11
+	      \
+	       10
+--------------------------------------------
+		1
+		/ \
+	       2   3
+	       \   /\
+	       4  5  6
+		  /\
+		  7 8
+
+Preorder: 1, 2, 4, 3, 5, 7, 8, 6
+Inorder: 2, 4, 1, 7, 5, 8, 3, 6
+Postorder: 4, 2, 7, 8, 5, 6, 3, 1
+
+

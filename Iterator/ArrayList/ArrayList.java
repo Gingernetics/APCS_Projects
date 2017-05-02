@@ -91,7 +91,7 @@ private class ListIterator implements Iterator<E>{
 	}
 
 	public E next() throws IllegalStateException{
-		if (!hasNext())
+		if (!hasNext)
 			throw new IllegalStateException;
 		_index++;
 		return _data[_index];
