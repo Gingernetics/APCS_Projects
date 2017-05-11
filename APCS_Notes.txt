@@ -1121,4 +1121,67 @@ Preorder: 1, 2, 4, 3, 5, 7, 8, 6
 Inorder: 2, 4, 1, 7, 5, 8, 3, 6
 Postorder: 4, 2, 7, 8, 5, 6, 3, 1
 
+Binary Search Tree:
+
+A balanced tree is a tree with the minimum possible maximum height
+
+To calculate the minimum maximum height where N is the number of nodes in the tree use this formula:
+	floor(log(2) N) = minimum maximum value
+
+A binary search tree (bst) is a binary search tree with an ordering property
+
+We will use this ordering property :
+	Given a root, the items contained in the left subtree are less than the root, the items in the right subtree are greater to or equal to the root
+
+The benefit of a BST is that if the tree is balanced, then the following operations should be O(log(2) N), where N is the number of items in the tree
+	a) find(x)
+	b) insert(x)
+	c) remove(x)
+
+Insert alorithm for BST:
+Given a value x start at the root and insert x as a leaf following these steps:
+	1. If the tree is empty then x is the root.
+	2. Else if x is less than the current root and the left subtree is empty, insert x as the root of the left subtree
+	3. Else if x is greater than or equal to the current root and the right subtree is empty insertx as the root of the right subtree
+	4. Else if x is less than the current subtree go left
+	5. Else go right
+4, 8, 12, 5, 14, 21, 2, 1
+4
+2 8
+1 5 12
+     14
+      21
+Inorder: 1, 2, 4, 5, 8, 12, 14, 21
+
+Sequence: 8, 4, 5, 2, 1, 14, 12, 21
+
+5/8/17
+		10
+		/  \ 
+		5  25
+		/\  /
+		4 7 13
+		    /
+		   11
+		   \
+		    12
+Preorder: 10, 5, 4, 7, 25, 13, 11, 12
+Inorder: 4, 5, 7, 10, 11, 12, 13, 25
+Postorder: 4, 7, 5, 12, 11, 13, 25, 10
+
+An internal node of a binary tree is a node with at least one child
+
+Removal Algorithm for BST:
+1. If the tree is empty, STOP 
+2. If the val is a leaf remove a leaf
+3. If the val is an internal node with no right subtree, then transfer, the maximum value, max, from the left subtree into the node that contains val, then remove max from the left subtree.
+4. Otherwise, transfer the minimum value, min, from the right subtree into the node that contains val, then reove min from the right subtree
+
+*----------------------*
+A set is a collection of objects
+An object is either contained in the set or it is not. THerefore all the objects in the set are unique (no duplicates).
+**A set may be ordered
+
+A TreeSet is a set of ordered objects. The objects in a TreeSort must be comparable.
+
 

@@ -43,6 +43,10 @@ public class TreeNode<E>{
 	return ans;
     }
 
+    public boolean isLeaf(){
+	return getRight() == null && getLeft() == null;
+    }
+
     public String toString(){
 	return getValue() + "";
     }

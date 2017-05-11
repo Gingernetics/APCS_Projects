@@ -72,7 +72,7 @@ public class TreeApp{
     }
 
     public static<E> int height(TreeNode<E> rt) {
-	if (rt == null) return -1;
+	if (rt == null || isLeaf(rt)) return 0;
 	return 1 + Math.max(height(rt.getLeft()), height(rt.getRight()));
     }
 
