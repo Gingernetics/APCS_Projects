@@ -1184,4 +1184,44 @@ An object is either contained in the set or it is not. THerefore all the objects
 
 A TreeSet is a set of ordered objects. The objects in a TreeSort must be comparable.
 
+Priority Queue
+- An ADT for storing a collection of prioritized elements that supports arbitrary element insertion but supports removal of elements in order of priority. The element with priority can be removed at any time.
 
+need to use java.util.PriorityQueue
+
+Heap
+- A heap is a complete binary tree in which each parent node is less than or equal to (or greater than or equal to) each of its children
+
+list = [1, 2, 8, 5, 9, 11, 13, 12]
+
+toString() of priority queue returns the heap
+
+Insert for heap
+1. Add as leaf to end
+	      i
+       2i + 1	2i + 2
+2. Swap up until valid heap
+
+HEAP DOESN'T FOLLOW BST RULES!!!
+
+public static void add(int v, ArrayList<Integer> heap){
+heap.add(v);
+int pos = heap.size() - 1;
+int parent;
+while (pos > 0){
+	parent = (pos - 1) / 2;
+	if (heap.get(parent) > v)
+		heap.set(pos, heap.set(parent, temp.get(pos));
+	else
+		break;
+	}
+}
+
+1. Swap desired value with right-most treenode on last level
+2. Walk down to re-establish heap property
+	- switch with the smaller child when walking down
+
+Heaps are represented as arrays, top down, left right
+No shifting of array, just swap individual values
+
+Removal must be log(n)
