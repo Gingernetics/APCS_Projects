@@ -1225,3 +1225,13 @@ Heaps are represented as arrays, top down, left right
 No shifting of array, just swap individual values
 
 Removal must be log(n)
+
+Exam #5 -Priority Queues, Hash Tables
+
+Hash Table
+Example of mod (size of array) as function
+Collision is when multiple values mapped to one location in array
+ 
+-Linear Probing
+
+-Bucket Hashing
